@@ -48,11 +48,11 @@ We have a [simple introductory tutorial](/en-US/docs/Web/API/Web_Audio_API/Using
 
 There's also a [Basic Concepts Behind Web Audio API](/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API) article, to help you understand the way digital audio works, specifically in the realm of the API. This also includes a good introduction to some of the concepts the API is built upon.
 
-Learning coding is like playing cards — you learn the rules, then you play, then you go back and learn the rules again, then you play again. So if some of the theory doesn't quite fit after the first tutorial and article, there's an [advanced tutorial](/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques) which extends the first one to help you practice what you've learnt, and apply some more advanced techniques to build up a step sequencer.
+Learning to code is like learning to play a board game — you learn the rules, then you play, then you go back and learn the rules again, then you play again. So if some of the theory doesn't quite fit after the first tutorial and article, there's an [advanced tutorial](/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques) which extends the first one to help you practice what you've learned and apply some more advanced techniques to build up a step sequencer.
 
 We also have other tutorials and comprehensive reference material available that covers all features of the API. See the sidebar on this page for more.
 
-If you are more familiar with the musical side of things, are familiar with music theory concepts, want to start building instruments, then you can go ahead and start building things with the advanced tutorial and others as a guide (the above-linked tutorial covers scheduling notes, creating bespoke oscillators and envelopes, as well as an LFO among other things.)
+If you are more familiar with the musical side of things, with music theory/production concepts, and want to start building instruments, then you can go ahead and start building things with the advanced tutorial and others as a guide (the above-linked tutorial covers scheduling notes, creating bespoke oscillators and envelopes, as well as an LFO among other things).
 
 If you aren't familiar with the programming basics, you might want to consult some beginner's JavaScript tutorials first and then come back here — see our [Beginner's JavaScript learning module](/en-US/docs/Learn/JavaScript) for a great place to begin.
 
@@ -65,17 +65,17 @@ The Web Audio API has a number of interfaces and associated events, which we hav
 General containers and definitions that shape audio graphs in Web Audio API usage.
 
 - {{domxref("AudioContext")}}
-  - : The **`AudioContext`** interface represents an audio-processing graph built from audio modules linked together, each represented by an {{domxref("AudioNode")}}. An audio context controls the creation of the nodes it contains and the execution of the audio processing, or decoding. You need to create an `AudioContext` before you do anything else, as everything happens inside a context.
+  - : The **`AudioContext`** interface represents an audio-processing graph built from audio modules linked together, each represented by an {{domxref("AudioNode")}}. An **`AudioContext`** controls the creation of the nodes it contains and the execution of the audio processing, or decoding. You need to create an **`AudioContext`** before you do anything else, as everything happens inside a context.
 - {{domxref("AudioNode")}}
-  - : The **`AudioNode`** interface represents an audio-processing module like an _audio source_ (e.g. an HTML {{HTMLElement("audio")}} or {{HTMLElement("video")}} element), _audio destination_, _intermediate processing module_ (e.g. a filter like {{domxref("BiquadFilterNode")}}, or _volume control_ like {{domxref("GainNode")}}).
+  - : The **`AudioNode`** interface represents an audio-processing module like an _audio source_ (e.g. an HTML {{HTMLElement("audio")}} or {{HTMLElement("video")}} element), _audio destination_, _intermediate processing module_ (e.g. a filter like {{domxref("BiquadFilterNode")}}, or a level control like {{domxref("GainNode")}}).
 - {{domxref("AudioParam")}}
-  - : The **`AudioParam`** interface represents an audio-related parameter, like one of an {{domxref("AudioNode")}}. It can be set to a specific value or a change in value, and can be scheduled to happen at a specific time and following a specific pattern.
+  - : The **`AudioParam`** interface represents an audio-related parameter, like one of an {{domxref("AudioNode")}}. It can be set to a specific value or a _change_ in value, which can be scheduled to occur at a specific time or to follow a specific pattern.
 - {{domxref("AudioParamMap")}}
-  - : Provides a map-like interface to a group of {{domxref("AudioParam")}} interfaces, which means it provides the methods `forEach()`, `get()`, `has()`, `keys()`, and `values()`, as well as a `size` property.
+  - : Provides a map-like interface to a group of {{domxref("AudioParam")}} interfaces, providing the methods `forEach()`, `get()`, `has()`, `keys()`, and `values()` as well as a `size` property.
 - {{domxref("BaseAudioContext")}}
-  - : The **`BaseAudioContext`** interface acts as a base definition for online and offline audio-processing graphs, as represented by {{domxref("AudioContext")}} and {{domxref("OfflineAudioContext")}} respectively. You wouldn't use `BaseAudioContext` directly — you'd use its features via one of these two inheriting interfaces.
+  - : The **`BaseAudioContext`** interface acts as a base definition for online and offline audio-processing graphs, as represented by {{domxref("AudioContext")}} and {{domxref("OfflineAudioContext")}}, respectively. You wouldn't use **`BaseAudioContext`** directly, you'd use its features via one of these two inheriting interfaces.
 - The {{event("ended")}} event
-  - : The `ended` event is fired when playback has stopped because the end of the media was reached.
+  - : The **`ended`** event is fired when playback has stopped because the audio sources have stopped producing sound and there no more scheduled events left.
 
 ### Defining audio sources
 
@@ -101,7 +101,7 @@ Interfaces that define audio sources for use in the Web Audio API.
 Interfaces for defining effects that you want to apply to your audio sources.
 
 - {{domxref("BiquadFilterNode")}}
-  - : The **`BiquadFilterNode`** interface represents a simple low-order filter. It is an {{domxref("AudioNode")}} that can represent different kinds of filters, tone control devices, or graphic equalizers. A `BiquadFilterNode` always has exactly one input and one output.
+  - : The **`BiquadFilterNode`** interface represents a simple low-order filter. It is an {{domxref("AudioNode")}} that can represent different kinds of filters, tone control devices, or graphic equalizers. A **`BiquadFilterNode`** always has exactly one input and one output.
 - {{domxref("ConvolverNode")}}
   - : The **`ConvolverNode`** interface is an {{domxref("AudioNode")}} that performs a Linear Convolution on a given {{domxref("AudioBuffer")}}, and is often used to achieve a reverb effect.
 - {{domxref("DelayNode")}}
@@ -115,7 +115,7 @@ Interfaces for defining effects that you want to apply to your audio sources.
 - {{domxref("PeriodicWave")}}
   - : Describes a periodic waveform that can be used to shape the output of an {{ domxref("OscillatorNode") }}.
 - {{domxref("IIRFilterNode")}}
-  - : Implements a general **[infinite impulse response](https://en.wikipedia.org/wiki/infinite%20impulse%20response "infinite impulse response")** (IIR) filter; this type of filter can be used to implement tone control devices and graphic equalizers as well.
+  - : Implements a general **[infinite impulse response](https://en.wikipedia.org/wiki/infinite%20impulse%20response "infinite impulse response")** (IIR) filter. This type of filter can be used to implement tone control devices and graphic equalizers, as well.
 
 ### Defining audio destinations
 
@@ -164,7 +164,7 @@ Using audio worklets, you can define custom audio nodes written in JavaScript or
 - {{domxref("AudioWorkletProcessor")}}
   - : The `AudioWorkletProcessor` interface represents audio processing code running in a `AudioWorkletGlobalScope` that generates, processes, or analyzes audio directly, and can pass messages to the corresponding `AudioWorkletNode`.
 - {{domxref("AudioWorkletGlobalScope")}}
-  - : The `AudioWorkletGlobalScope` interface is a `WorkletGlobalScope`-derived object representing a worker context in which an audio processing script is run; it is designed to enable the generation, processing, and analysis of audio data directly using JavaScript in a worklet thread rather than on the main thread.
+  - : The `AudioWorkletGlobalScope` interface is a `WorkletGlobalScope`-derived object representing a worker context in which an audio processing script is run. It is designed to enable the generation, processing, and analysis of audio data directly using JavaScript in a worklet thread rather than on the main thread.
 
 #### Obsolete: script processor nodes
 
