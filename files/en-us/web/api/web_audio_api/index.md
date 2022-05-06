@@ -12,22 +12,22 @@ tags:
 ---
 {{DefaultAPISidebar("Web Audio API")}}
 
-The Web Audio API provides a powerful and versatile system for controlling audio on the Web, allowing developers to choose audio sources, add effects to audio, create audio visualizations, apply spatial effects (such as panning) and much more.
+The Web Audio API provides a powerful and versatile system for controlling audio on the web, allowing developers to choose audio sources, add effects to audio, create audio visualizations, apply spatial effects (such as panning), and much more.
 
 ## Web audio concepts and usage
 
 The Web Audio API involves handling audio operations inside an **audio context**, and has been designed to allow **modular routing**. Basic audio operations are performed with **audio nodes**, which are linked together to form an **audio routing graph**. Several sources — with different types of channel layout — are supported even within a single context. This modular design provides the flexibility to create complex audio functions with dynamic effects.
 
-Audio nodes are linked into chains and simple webs by their inputs and outputs. They typically start with one or more sources. Sources provide arrays of sound intensities (samples) at very small timeslices, often tens of thousands of them per second. These could be either computed mathematically (such as {{domxref("OscillatorNode")}}), or they can be recordings from sound/video files (like {{domxref("AudioBufferSourceNode")}} and {{domxref("MediaElementAudioSourceNode")}}) and audio streams ({{domxref("MediaStreamAudioSourceNode")}}). In fact, sound files are just recordings of sound intensities themselves, which come in from microphones or electric instruments, and get mixed down into a single, complicated wave.
+Audio nodes are linked into chains and simple webs by their inputs and outputs. They typically start with one or more sources. Sources provide arrays of sound intensities (samples) at very small timeslices, often tens of thousands of them per second. These could be either computed mathematically (such as {{domxref("OscillatorNode")}}), or they can be recordings from sound/video files (like {{domxref("AudioBufferSourceNode")}} or {{domxref("MediaElementAudioSourceNode")}}), or audio streams ({{domxref("MediaStreamAudioSourceNode")}}). In fact, sound files are just recordings of sound intensities themselves, which come in from microphones or electric instruments, and get mixed down into a single, complicated wave.
 
 Outputs of these nodes could be linked to inputs of others, which mix or modify these streams of sound samples into different streams. A common modification is multiplying the samples by a value to make them louder or quieter (as is the case with {{domxref("GainNode")}}). Once the sound has been sufficiently processed for the intended effect, it can be linked to the input of a destination ({{domxref("BaseAudioContext.destination")}}), which sends the sound to the speakers or headphones. This last connection is only necessary if the user is supposed to hear the audio.
 
 A simple, typical workflow for web audio would look something like this:
 
-1. Create audio context
-2. Inside the context, create sources — such as `<audio>`, oscillator, stream
-3. Create effects nodes, such as reverb, biquad filter, panner, compressor
-4. Choose final destination of audio, for example your system speakers
+1. Create the audio context.
+2. Create audio sources inside the context (such as {{HTMLElement("audio")}}, an oscillator, or stream).
+3. Create audio effects (such as the reverb, biquad filter, panner, or compressor nodes).
+4. Choose the final destination for the audio (such as the user's computer speakers).
 5. Connect the sources up to the effects, and the effects to the destination.
 
 ![A simple box diagram with an outer box labeled Audio context, and three inner boxes labeled Sources, Effects and Destination. The three inner boxes have arrows between them pointing from left to right, indicating the flow of audio information.](audio-context_.png)
